@@ -9,7 +9,7 @@ interface SegmentedListItem {
   children: Array<SegmentedListChild>;
 }
 
-type SegmentedList = Array<SegmentedListItem>;
+export type SegmentedList = Array<SegmentedListItem>;
 
 @Component({
   selector: 'segmented-list',
