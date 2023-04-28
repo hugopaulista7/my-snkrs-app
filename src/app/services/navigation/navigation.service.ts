@@ -4,11 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class NavigationService {
-  tabRoot = false;
-
   constructor() {}
-
-  setRootTabs() {
-    this.tabRoot = true;
-  }
 }

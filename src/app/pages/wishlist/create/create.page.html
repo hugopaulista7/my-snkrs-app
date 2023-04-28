@@ -1,0 +1,144 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2 class="ion-padding">Add to Wishlist</h2>
+
+  <form #form="ngForm" (ngSubmit)="create(form)" [formGroup]="addForm">
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>Model Name</ion-label>
+        <ion-input
+          type="text"
+          placeholder="E.g. Air Jordan 1"
+          formControlName="modelName"
+          required
+        ></ion-input>
+      </ion-item>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['modelName'].errors?.['required']"
+      >
+        Model Name is required.
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['modelName'].errors?.['minLength']"
+      >
+        Model Name should be min 2 chars long.
+      </span>
+
+      <ion-item>
+        <ion-label>Brand</ion-label>
+        <ion-input
+          type="text"
+          placeholder="E.g. Nike"
+          required
+          formControlName="brand"
+        ></ion-input>
+      </ion-item>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['brand'].errors?.['required']"
+      >
+        Brand is required.
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['brand'].errors?.['minLength']"
+      >
+        Brand should be min 2 chars long.
+      </span>
+
+      <ion-item>
+        <ion-label>Colorway</ion-label>
+        <ion-input
+          type="text"
+          placeholder="E.g. Black / Red"
+          required
+          formControlName="colorway"
+        ></ion-input>
+      </ion-item>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['colorway'].errors?.['required']"
+      >
+        Colorway is required.
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['colorway'].errors?.['minLength']"
+      >
+        Colorway should be min 2 chars long.
+      </span>
+
+      <ion-item>
+        <ion-label>Size</ion-label>
+        <ion-input
+          type="text"
+          placeholder="E.g. 43"
+          formControlName="size"
+          required
+        ></ion-input>
+      </ion-item>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['size'].errors?.['required']"
+      >
+        Size is required.
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl['size'].errors?.['minLength']"
+      >
+        Size should be min 2 chars long.
+      </span>
+
+      <ion-item>
+        <ion-label>Link</ion-label>
+        <ion-input
+          type="text"
+          placeholder="https://..."
+          formControlName="link"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Pictures</ion-label>
+        <ion-input
+          type="text"
+          placeholder="todo"
+          formControlName="pictures"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Launch Date</ion-label>
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle formControlName="addToCalendar"
+          >Add to Calendar?</ion-toggle
+        >
+      </ion-item>
+    </ion-list>
+
+    <ion-button
+      type="submit"
+      color="primary"
+      expand="block"
+      class="ion-margin-vertical ion-padding-horizontal"
+      >Save</ion-button
+    >
+  </form>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime color="light" locale="pt-BR" id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+</ion-content>

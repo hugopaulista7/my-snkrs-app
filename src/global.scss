@@ -32,3 +32,8 @@
 .d-flex {
   display: flex;
 }
+
+.error {
+  color: var(--ion-color-danger);
+  font-size: 12px;
+}

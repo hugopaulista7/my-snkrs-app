@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button color="light" fill="clear">
+      <ion-button color="light" fill="clear" [routerLink]="['create']">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -9,5 +9,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-searchbar></ion-searchbar>
   <segmented-list [itens]="list"></segmented-list>
 </ion-content>

@@ -57,10 +57,12 @@
 
   --ion-background-color: #010101;
   --ion-toolbar-background: #010101;
+  --ion-toolbar-color: #fff;
   --ion-tab-bar-background: var(--ion-color-secondary-shade);
   --ion-tab-bar-color-selected: var(--ion-color-secondary-contrast);
   --ion-item-background: var(--ion-tab-bar-background);
   --ion-text-color: var(--ion-color-light-tint);
+  --ion-text-color-rgb: var(--ion-color-light-rgb);
 
   --ion-color-step-50: #0d0d0d;
   --ion-color-step-100: #1a1a1a;

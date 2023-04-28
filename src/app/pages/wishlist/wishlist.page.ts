@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SegmentedList } from 'src/app/components/segmented-list/segmented-list.component';
 
 @Component({
@@ -19,7 +20,7 @@ export class WishlistPage implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 }

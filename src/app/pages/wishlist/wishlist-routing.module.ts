@@ -6,8 +6,13 @@ import { WishlistPage } from './wishlist.page';
 const routes: Routes = [
   {
     path: '',
-    component: WishlistPage
-  }
+    component: WishlistPage,
+  },
+  {
+    path: 'create',
+    loadChildren: () =>
+      import('./create/create.module').then((m) => m.CreatePageModule),
+  },
 ];
 
 @NgModule({
