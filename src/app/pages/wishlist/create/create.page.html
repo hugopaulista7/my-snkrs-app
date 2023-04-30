@@ -116,10 +116,6 @@
           formControlName="pictures"
         ></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label>Launch Date</ion-label>
-        <ion-datetime-button datetime="datetime"></ion-datetime-button>
-      </ion-item>
 
       <ion-item>
         <ion-toggle formControlName="addToCalendar"
@@ -136,9 +132,4 @@
       >Save</ion-button
     >
   </form>
-  <ion-modal [keepContentsMounted]="true">
-    <ng-template>
-      <ion-datetime color="light" locale="pt-BR" id="datetime"></ion-datetime>
-    </ng-template>
-  </ion-modal>
 </ion-content>

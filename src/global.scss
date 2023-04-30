@@ -37,3 +37,8 @@
   color: var(--ion-color-danger);
   font-size: 12px;
 }
+
+ion-popover {
+  --background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+}

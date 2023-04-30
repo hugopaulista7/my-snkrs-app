@@ -2,9 +2,24 @@
   <div class="segmented-list" *ngFor="let list of itens">
     <h2 class="segmented-list-header">{{ list.title }}</h2>
     <ion-list [inset]="true">
-      <ion-item *ngFor="let item of list.children">
+      <ion-item
+        *ngFor="let item of list.children"
+        (press)="handleItemPress($event, item)"
+      >
         <ion-label>{{ item.text }}</ion-label>
       </ion-item>
     </ion-list>
   </div>
+
+  <ion-popover
+    #popover
+    [isOpen]="isOpen"
+    (didDismiss)="isOpen = false"
+    reference="event"
+    alignment="center"
+  >
+    <ng-template>
+      <ion-content class="ion-padding">Teste</ion-content>
+    </ng-template>
+  </ion-popover>
 </div>

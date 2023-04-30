@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SegmentedList } from 'src/app/components/segmented-list/segmented-list.component';
+import { SneakersService } from 'src/app/services/sneakers/sneakers.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -8,19 +9,11 @@ import { SegmentedList } from 'src/app/components/segmented-list/segmented-list.
   styleUrls: ['./wishlist.page.scss'],
 })
 export class WishlistPage implements OnInit {
-  list: SegmentedList = [
-    {
-      title: 'My Wishlist',
-      children: [
-        { text: 'Testing' },
-        { text: 'Testing' },
-        { text: 'Testing' },
-        { text: 'Testing' },
-      ],
-    },
-  ];
+  get list(): SegmentedList {
+    return this.snkrsService.groupedByBrand;
+  }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private snkrsService: SneakersService) {}
 
   ngOnInit() {}
 }

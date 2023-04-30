@@ -1,21 +1,7 @@
 ion-datetime {
-  --background: var(--ion-color-primary);
-  --color: #fff !important;
-  color: #fff !important;
-
   border-radius: 16px;
 }
-.calendar-action-buttons ion-item {
-  --color: #fff !important;
-}
-.calendar-action-buttons .calendar-month-year ion-item ion-label {
-  color: #fff !important;
-}
-// .item.sc-ion-label-ios-h,
-// .item .sc-ion-label-ios-h {
-//   --color: #000 !important;
-// }
 
-create-page {
-  --color: #fff;
+.modal-wrapper {
+  --border-radius: 16px;
 }
