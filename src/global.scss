@@ -42,3 +42,10 @@ ion-popover {
   --background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
 }
+
+.alert-ok-button {
+  color: #fff !important;
+}
+.alert-delete-button {
+  color: var(--ion-color-danger) !important;
+}

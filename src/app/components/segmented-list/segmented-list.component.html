@@ -2,12 +2,7 @@
   <div class="segmented-list" *ngFor="let list of itens">
     <h2 class="segmented-list-header">{{ list.title }}</h2>
     <ion-list [inset]="true">
-      <ion-item
-        *ngFor="let item of list.children"
-        (press)="handleItemPress($event, item)"
-      >
-        <ion-label>{{ item.text }}</ion-label>
-      </ion-item>
+      <pressable-item *ngFor="let item of list.children" [item]="item"></pressable-item>
     </ion-list>
   </div>
 

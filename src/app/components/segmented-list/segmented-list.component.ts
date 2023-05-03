@@ -1,10 +1,12 @@
 import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { Gesture, GestureController, PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../popover/popover.component';
+import { Sneaker } from 'src/app/models/sneaker';
 
-interface SegmentedListChild {
+export interface SegmentedListChild {
   text: string;
+  sneaker: Sneaker;
 }
 
 interface SegmentedListItem {

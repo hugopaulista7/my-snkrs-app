@@ -1,0 +1,19 @@
+<div class="presasble-item" #pressableItem>
+  <ion-item longPress (press)="isOpen = true" [id]="id">
+    <ion-label>{{ item?.text }}</ion-label>
+  </ion-item>
+
+  <ion-popover
+    [isOpen]="isOpen"
+    (didDismiss)="isOpen = false"
+    reference="event"
+    [trigger]="id"
+    [arrow]="false"
+    triggerAction="context-menu"
+    [dismissOnSelect]="true"
+  >
+    <ng-template>
+      <popover-content [item]="item"></popover-content>
+    </ng-template>
+  </ion-popover>
+</div>

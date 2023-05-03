@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { SegmentedList } from 'src/app/components/segmented-list/segmented-list.component';
-import { SneakersService } from 'src/app/services/sneakers/sneakers.service';
+import { Sneaker } from 'src/app/models/sneaker';
+import {
+  ACTIONS,
+  SneakersService,
+} from 'src/app/services/sneakers/sneakers.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -13,7 +18,38 @@ export class WishlistPage implements OnInit {
     return this.snkrsService.groupedByBrand;
   }
 
-  constructor(private router: Router, private snkrsService: SneakersService) {}
+  constructor(
+    private router: Router,
+    private snkrsService: SneakersService,
+    private alertCtrl: AlertController
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.handleSnkrsActions();
+  }
+
+  private handleSnkrsActions() {
+    this.snkrsService.sneakerAcitonsSub$.subscribe((subjRes) => {
+      if (subjRes.action == ACTIONS.edit) {
+        this.edit(subjRes.item.sneaker);
+      } else if (subjRes.action == ACTIONS.delete) {
+        this.delete(subjRes.item.sneaker);
+      }
+    });
+  }
+
+  private edit(sneaker: Sneaker) {}
+
+  private async delete(sneaker: Sneaker) {
+    const alert = await this.alertCtrl.create({
+      header: 'Are you sure?',
+      message: 'This action cannot be reverted',
+      buttons: [
+        { text: 'Ok', cssClass: 'alert-ok-button' },
+        { text: 'Cancel', cssClass: 'alert-delete-button', role: 'cancel' },
+      ],
+    });
+
+    alert.present();
+  }
 }

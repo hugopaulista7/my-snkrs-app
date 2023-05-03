@@ -2,8 +2,14 @@ import { Injectable } from '@angular/core';
 import { Sneaker } from 'src/app/models/sneaker';
 import { StorageService } from '../storage/storage.service';
 import { SegmentedList } from 'src/app/components/segmented-list/segmented-list.component';
+import { Subject } from 'rxjs';
 
 const SNEAKERS_ARRAY_KEY = 'snkrs_saved_list';
+
+export const ACTIONS = {
+  edit: 'edit',
+  delete: 'delete',
+};
 
 export const groupBy = (elements: any, key: string): Array<any> => {
   return elements.reduce((rv: any, x: any) => {
@@ -17,6 +23,8 @@ export const groupBy = (elements: any, key: string): Array<any> => {
 })
 export class SneakersService {
   private _sneakersSession: Array<Sneaker> = [];
+
+  sneakerAcitonsSub$: Subject<any> = new Subject();
 
   constructor(private storage: StorageService) {}
 
@@ -43,7 +51,7 @@ export class SneakersService {
         return {
           title: key,
           children: grouped[key].map((e: Sneaker) => {
-            return { text: e.modelName };
+            return { text: e.modelName, sneaker: e };
           }),
         };
       });
